@@ -2,10 +2,10 @@ console.log("Script started")
 
 // TODO: Test working with objects here
 let person = {
-    name: "Paul",
+    name: "Allen",
      age: "80",
-     eyeColor: "yellow";
-}
+     eyeColor: "yellow"
+};
 
 console.log(person.name);
 
@@ -13,7 +13,7 @@ person.name = "Allen";
 console.log(person.name);
 
 person.birthday = "Jan 1";
-console.loh(person);
+console.log(person);
 
 
 function processForm(event) {
@@ -28,18 +28,23 @@ function processForm(event) {
         birthdate: document.getElementById("birthdate").value,
         favColor: document.getElementById("favcolor").value,
     }
+    console.log(newUser);
 
     // TODO: Call the addUser function and pass the newUser object as a parameter
+    
+    addUser(newUser);
 }
 
 function addUser(user) {
     // Create a div to hold the user's info
     let div = document.createElement("div");
     // TODO: Set the background color of the div to the user's favorite color
+    div.style.backgroundColor = user.favColor;
 
     // Create a heading for the user's name
     let name = document.createElement("h2");
     // TODO: Set the text using the object data
+    name.innerText = user.name;
     div.appendChild(name); // Add the heading to the div
 
     // Create a paragraph for the user's email
@@ -50,6 +55,7 @@ function addUser(user) {
     // Create a paragrapn for the user's birthdate
     let birthdate = document.createElement("p");
     // TODO: Set the text using the object data
+    birthdate.innerText = user.birthdate;
     div.appendChild(birthdate); // Add the paragraph to the div
 
     document.body.appendChild(div); // Add the div to the page
